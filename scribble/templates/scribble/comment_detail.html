@@ -1,0 +1,11 @@
+<h2>{{ comment.author }} <a href="{% url 'comment_edit' pk=comment.pk %}">(edit)</a></h2>
+<h4>{{ comment.body }}</h4>
+
+<h3>Post<a href="">(+)</a></h3>
+<ul>
+    {% for post in comment.posts.all %}
+        <li>
+            <a href="">{{ post.author }}-{{ comment.title }}-{{ comment.body }}</a>
+        </li>
+    {% endfor %}
+</ul>

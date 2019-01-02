@@ -1,0 +1,25 @@
+{% load staticfiles %}
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Scribble</title>
+        <link rel="stylesheet" href="{% static 'css/scribble.css' %}">
+    </head>
+    <body>
+        <h1>Scribble</h1>
+        <nav>
+            <a href="/comments">Comments</a>
+            <a href="/">Post</a>
+        </nav>
+        {% block content %}
+        <h2>Posts <a href="{% url 'post_create' %}">(+)</a></h2>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <a href="{% url 'post_detail' pk=post.id %}">{{ post.author }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </body>
+</html>
